@@ -1,0 +1,126 @@
+/* Reset some basic styles */
+body, h1, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #222121;
+    color: #ffd000;
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    background-color: #333;
+    padding: 15px;
+}
+
+nav a {
+    color: #ffd000;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2.5rem;
+    border: 3px solid rgba(75, 138, 75, 0.267);
+    width: 500px;
+    line-height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.project-link {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    color: #fff;
+    text-decoration: none;
+    padding: 40px;
+    margin: 30px;
+    border-radius: 15px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    width: 400px;  /* Increased width */
+    height: 300px; /* Increased height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-link:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 16px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* Overlay effect */
+.project-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2); /* Dark overlay */
+    z-index: 1; /* Place overlay above the background */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.project-link:hover::before {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.project-link img {
+    width: 80px; /* Image size */
+    height: auto; 
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-link:hover img {
+    transform: scale(1.1); /* Slightly scale image on hover */
+}
+
+.project-link .project-title {
+    font-size: 1.5rem; /* Title size */
+    font-weight: bold;
+    margin-bottom: 10px;
+    z-index: 2; /* Ensure title is above overlay */
+}
+
+/* Add responsive behavior */
+@media (max-width: 600px) {
+    .projects {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-link {
+        width: 90%;
+    }
+}
